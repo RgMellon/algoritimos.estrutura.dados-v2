@@ -5,9 +5,6 @@ class Stack {
   }
 
   push(element) {
-    if (!element) return;
-
-    console.log("dasddas8");
     this.items[this.count] = element;
     this.count++;
   }
