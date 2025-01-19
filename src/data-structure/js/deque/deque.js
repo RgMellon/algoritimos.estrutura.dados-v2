@@ -6,8 +6,14 @@ class Deque {
   }
 
   addFront(element) {
-    if (this.count === 0) {
+    if (this.isEmpty()) {
       this.addBack(element);
+      return;
+    }
+
+    if (this.lowestCount > 0) {
+      this.lowestCount--;
+      this.items[this.lowestCount] = element;
       return;
     }
 
@@ -16,6 +22,7 @@ class Deque {
     }
 
     this.count++;
+    this.lowestCount = 0;
     this.items[0] = element;
   }
 
@@ -30,6 +37,19 @@ class Deque {
 
   peekFront() {
     return this.items[this.lowestCount];
+  }
+
+  removeFront() {
+    if (this.lowestCount < 0) return undefined;
+
+    const result = this.items[this.lowestCount];
+    delete this.items[this.lowestCount];
+    this.lowestCount++;
+    return result;
+  }
+
+  isEmpty() {
+    return this.count - this.lowestCount === 0;
   }
 }
 

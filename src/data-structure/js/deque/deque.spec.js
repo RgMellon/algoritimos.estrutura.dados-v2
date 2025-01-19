@@ -48,4 +48,29 @@ describe("Deque", () => {
 
     expect(result).toEqual("Renan");
   });
+
+  it("shoul remove first element", () => {
+    deque.addBack("Renan");
+    deque.addBack("Melo");
+    deque.addBack("Joao");
+
+    deque.removeFront();
+    const response = deque.removeFront();
+
+    expect(response).toBe("Melo");
+  });
+
+  it("should list the items correctly when a item is removed from front and lowestCount is bigger than 1", () => {
+    deque.addBack(8);
+    deque.addBack(9);
+    deque.addFront(20);
+
+    deque.removeFront();
+
+    deque.addFront(7);
+
+    expect(deque.items[0]).toBe(7);
+    expect(deque.items[1]).toBe(8);
+    expect(deque.items[2]).toBe(9);
+  });
 });
