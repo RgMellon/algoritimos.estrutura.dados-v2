@@ -73,4 +73,14 @@ describe("Deque", () => {
     expect(deque.items[1]).toBe(8);
     expect(deque.items[2]).toBe(9);
   });
+
+  it("should be able to remove last element", () => {
+    deque.addBack(1);
+    deque.addBack(2);
+
+    const result = deque.removeBack();
+    expect(result).toBe(2);
+    console.log(deque.items);
+    expect(deque.items).toEqual({ 0: 1 });
+  });
 });

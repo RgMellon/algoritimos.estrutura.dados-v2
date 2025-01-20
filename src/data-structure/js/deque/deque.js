@@ -51,6 +51,13 @@ class Deque {
   isEmpty() {
     return this.count - this.lowestCount === 0;
   }
+
+  removeBack() {
+    this.count--;
+    const result = this.items[this.count];
+    delete this.items[this.count];
+    return result;
+  }
 }
 
 module.exports = Deque;
