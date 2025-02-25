@@ -26,7 +26,7 @@ class LinkedList {
     if (positionToRemove === 0) {
       this.head = this.head.next;
     } else {
-      let prev = this.#getElementAt(positionToRemove - 1);
+      let prev = this.getElementAt(positionToRemove - 1);
       let current = prev.next;
 
       prev.next = current?.next;
@@ -42,7 +42,7 @@ class LinkedList {
       newNode.next = this.head;
       this.head = newNode;
     } else {
-      let prev = this.#getElementAt(position - 1);
+      let prev = this.getElementAt(position - 1);
       let current = prev.next;
 
       newNode.next = current;
@@ -69,7 +69,7 @@ class LinkedList {
     return -1;
   }
 
-  #getElementAt(findIndex) {
+  getElementAt(findIndex) {
     let node = this.head;
 
     for (let index = 0; index < findIndex; index++) {
