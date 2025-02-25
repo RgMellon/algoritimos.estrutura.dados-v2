@@ -54,14 +54,38 @@ class Set {
   intersection(otherSet) {
     const intersectionSet = new Set();
 
-    otherSet.values().forEach((element) => {
-      if (this.has(element)) {
+    const value = this.values();
+    const otherValues = otherSet.values();
+
+    let smallerValue = value;
+    let biggestValue = otherValues;
+
+    if (smallerValue.length - biggestValue.length > 0) {
+      smallerValue = biggestValue;
+      biggestValue = smallerValue;
+    }
+
+    smallerValue.forEach((element) => {
+      if (biggestValue.includes(element)) {
         intersectionSet.add(element);
       }
     });
 
-    console.log(intersectionSet.values());
     return intersectionSet;
+  }
+
+  difference(otherSet) {
+    const differenceSet = new Set();
+
+    const values = this.values();
+
+    values.forEach((element) => {
+      if (!otherSet.has(element)) {
+        differenceSet.add(element);
+      }
+    });
+
+    return differenceSet;
   }
 }
 

@@ -81,18 +81,31 @@ describe("Set", () => {
     const setA = new Set();
     setA.add(1);
     setA.add(2);
-    setA.add(3);
 
     const setB = new Set();
     setB.add(2);
     setB.add(4);
     setB.add(5);
+    setB.add(6);
 
     const newResult = setA.intersection(setB);
 
     expect(newResult.values()).toEqual([2]);
   });
-});
 
-// amanha verificar o uso de {} ao inves de array
-// continuar
+  it("should show difference two sets", () => {
+    const setA = new Set();
+    setA.add(1);
+    setA.add(2);
+    setA.add(3);
+
+    const setB = new Set();
+    setB.add(2);
+    setB.add(3);
+    setB.add(4);
+
+    const newResult = setA.difference(setB);
+
+    expect(newResult.values()).toEqual([1]);
+  });
+});
