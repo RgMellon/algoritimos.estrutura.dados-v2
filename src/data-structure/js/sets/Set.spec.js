@@ -108,4 +108,19 @@ describe("Set", () => {
 
     expect(newResult.values()).toEqual([1]);
   });
+
+  it("should be a subset of set", () => {
+    const setA = new Set();
+    setA.add(1);
+    setA.add(2);
+
+    const setB = new Set();
+    setB.add(1);
+    setB.add(2);
+    setB.add(4);
+
+    const result = setA.isSubSetOf(setB);
+
+    expect(result).toBeTruthy();
+  });
 });

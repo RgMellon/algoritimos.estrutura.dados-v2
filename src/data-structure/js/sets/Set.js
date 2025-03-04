@@ -87,6 +87,19 @@ class Set {
 
     return differenceSet;
   }
+
+  isSubSetOf(otherSet) {
+    if (this.size() > otherSet.size()) {
+      return false;
+    }
+
+    let isSubSet = false;
+    isSubSet = this.values().every((element) => {
+      return otherSet.has(element);
+    });
+
+    return isSubSet;
+  }
 }
 
 module.exports = Set;
