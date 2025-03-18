@@ -85,4 +85,28 @@ describe("Dictionary", () => {
     expect(callback).toHaveBeenCalledWith("a", "rgmelo94@gmail.com");
     expect(callback).not.toHaveBeenCalledWith("b", "teste@gmail.com");
   });
+
+  it("should show the size", () => {
+    dictionary.set("a", "rgmelo94@gmail.com");
+    dictionary.set("b", "teste@gmail.com");
+
+    const size = dictionary.size();
+
+    expect(size).toBe(2);
+  });
+
+  it("should show if the dictionary is empty", () => {
+    expect(dictionary.isEmpty()).toBeTruthy();
+  });
+
+  it("should return a string", () => {
+    dictionary.set("a", "rgmelo94@gmail.com");
+    dictionary.set("b", "teste@gmail.com");
+
+    const result = dictionary.toStr();
+
+    expect(result).toBeTruthy();
+  });
 });
+
+// NO FIM DE HASHTBALE QUERO VOLTAR PRA FAZER UMA COMPARACAO DAS DUAS

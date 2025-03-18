@@ -71,11 +71,17 @@ class Dictionary {
     return this.keyValues().map((valuePair) => valuePair.value);
   }
 
-  clear() {}
+  clear() {
+    this.items = {};
+  }
 
-  size() {}
+  size() {
+    return Object.keys(this.items).length;
+  }
 
-  isEmpty() {}
+  isEmpty() {
+    return this.size() === 0;
+  }
 
   forEach(callBack) {
     const valuePairs = this.keyValues();
@@ -85,6 +91,21 @@ class Dictionary {
 
       if (result === false) break;
     }
+  }
+
+  toStr() {
+    if (this.isEmpty()) {
+      return "";
+    }
+
+    const valuePairs = this.keyValues();
+    let objString = `${valuePairs[0].toString()}`;
+
+    for (let index = 1; index < valuePairs.length; index++) {
+      objString = `${objString}, ${valuePairs[index].toString()}`;
+    }
+
+    return objString;
   }
 }
 
