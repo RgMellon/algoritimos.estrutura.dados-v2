@@ -42,7 +42,8 @@ class HashTable {
   }
 
   hashCode(value) {
-    return this.#makeLoseLoseHash(value);
+    const e = this.#makeLoseLoseHash(value);
+    return e;
   }
 
   #makeLoseLoseHash(value) {
@@ -53,9 +54,9 @@ class HashTable {
     const parsedKey = this.toStrFn(value);
     let hash = 0;
 
-    [...parsedKey].forEach((word) => {
-      hash += parsedKey.charCodeAt(word);
-    });
+    for (let i = 0; i < parsedKey.length; i++) {
+      hash += parsedKey.charCodeAt(parsedKey[i]);
+    }
 
     return hash % 37;
   }

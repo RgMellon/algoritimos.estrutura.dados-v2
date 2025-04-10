@@ -34,8 +34,6 @@ class HashTableSepareteChanning {
     let current = linkedList.getHead();
 
     while (current.element) {
-      console.log(current.element.key);
-
       if (current.element.key === key) {
         return current.element.value;
       }
@@ -55,7 +53,6 @@ class HashTableSepareteChanning {
     if (!!linkedList && linkedList.size() > 0) {
       while (current) {
         if (current.element.key === key) {
-          console.log("i");
           linkedList.remove(current.element);
           delete this.table[hash];
           return true;

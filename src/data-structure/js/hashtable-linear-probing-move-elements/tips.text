@@ -1,0 +1,3 @@
+verificar se é necessário mover um ou mais elementos uma position para trás. 
+Ao procurar uma chave, essa abordagem evita encontrar uma posição vazia, mas, se for necessário mover elementos,
+ significa que precisaremos deslocar as chaves-valores na tabela hash.
